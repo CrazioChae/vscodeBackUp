@@ -1,0 +1,52 @@
+*서비스를 구현하기 위함
+
+자바의 사용처
+ - 안드로이드
+ - 웹
+
+1) 환경 구축 - Eclipse, JDK
+2) 입출력
+ - 출력 : System.out.print(content);
+
+3) 변수
+ - 값을 저장(기억)하는 메모리 공간
+  - 숫자(정수 : int, 실수 : double)
+  - 문자(문자 : char, 문자열 : String)
+  - 논리(boolean)
+
+4) 연산자
+ - 결과값이 숫자(산술)
+ - ==, !=, >=, <=
+
+5) 조건문
+ - 비교(논리) 연산의 결과에 따라 명령어를 제어
+ 
+================================================
+
+MVC Pattern
+ - 프로그램의 유지보수가 편해지는 코드 구성
+
+MVC Pattern의 설계 이유
+ - 유지보수, 반복된 코드, 규칙적인 패턴
+ - M : model, V : view, C : controller
+
+User -(request)-> Controller -(request)-> Model -(respond)->
+ Controller -(convey)-> View -(offer)-> User
+
+MVC Pattern Rule
+ 1. Model측 Controller / View 의존 X
+  > 모델 내부에 Controller / View 관련 코드 존재 X
+ 2. View는 Model측 의존 / Controller 의존 X
+  > View 내부에는 Model측 코드
+  > Controller측 코드 존재 X
+ 3. View가 Model로부터 데이터를 받을 때
+  사용자마다 다르게 보여주어야 하는 데이터에 대해서만 받아야 함
+ 4. Controller Model / View 의존 O
+  > Controller Model / View 중재자 역할
+ 5. View단계에서 Model로부터 데이터를 받을 때 반드시 Controller단계를
+  거쳐야 함
+ 
+ Model : 프로그램의 Logic / 데이터 담당
+ View : Model 단계를 표현하기 위해 UI를 제공
+ Controller : View / Model 사이에 위치해 사용자로부터 정보 입력
+  Model 통해 정보를 처리, 이후 처리한 정보를 View에 전달

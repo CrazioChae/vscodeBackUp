@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <!-- 
+        내부방식 = html코드 안에다가 직접 css를 작성하는 방법
+            - style태그를 활용
+            - 단점 
+            1. 코드가 노출(보안에 취약) , 2. 코드의 재사용성이 불편
+            3. 유지보수가 불편
+            - 사용처 : 내부개발(간단한 개발)
+        
+        인라인방식 = 태그안에 직접 css를 작성하는 방법
+            - 단점 
+            1. 코드가 노출(보안에 취약) , 2. 코드의 재사용성이 불편
+            3. 유지보수가 불편
+            - 사용처 : 단순한 스타일 하나의 태그에 적용할 때 사용
+        
+        외부방식 = html과 css를 분리해서 사용
+        - <link rel="stylesheet" href="css파일의 경로">
+        - 장점 
+        1. 코드가 직접적으로 노출되지 않는다.
+        2. 코드의 재사용성이 편리
+        3. 유지보수가 편리
+        실제로 코드를 배포할때 사용(필수) -> 무조건 이것만 사용하세요!
+        - 주의점 : css파일에는 항상 style태그를 사용하지 않는다!!
+
+        선언방식 우선순위 : 인라인 > 내부 > 외부
+        선택자 우선순위 : id > class > 태그 > 전체
+        순서 우선순위 : 나중에 선언 > 먼저 선언
+        최상위 우선순위 : !important
+
+    -->
+   
+    <link rel="stylesheet" href="main.css">
+    <style>
+        h1{
+            color: red;
+        }
+    </style>
+</head>
+<body>
+    <h1>텍스트입니다.</h1>
+    <p style="color:blue">p태그입니다.</p>
+    <span>외부방식 스타일</span>
+    
+</body>
+</html>

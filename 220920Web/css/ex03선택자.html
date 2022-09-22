@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        /*
+
+        1.전체선택자(*) = html안에 존재하는 모든 태그들에게 적용하겠다. 우선순위가 가장 낮다.
+        2.태그선택자(태그명)= html안에 존재하는 특정 태그들에게 적용하겠다.
+        3.클래스선택자(.) = html안에 존재하는 특정 클래스들에게 적용하겠다.
+        4.아이디선택자(#) = html안에 존재하는 유일한 id값에게 적용하겠다.
+        우선순위 = 내가 선택한 요소의 개수가 작으면 작을수록 높은 우선순위
+            전체 < 태그 < 클래스 < 아이디
+        */
+
+        *{
+            color: blue;
+        }
+
+        h1{
+            color: red;
+        }
+        .txt{
+            color: yellow;
+        }
+        #hi{
+            color: green;
+        }
+    </style>
+</head>
+<body>
+    <h1>h1태그</h1>    
+    <h1 class="txt">h1태그</h1>
+    <span class="txt" id="hi"> 안녕하세요!</span>
+    <p>곧 점심시간!</p>
+</body>
+</html>

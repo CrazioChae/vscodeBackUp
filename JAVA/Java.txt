@@ -1,0 +1,27 @@
+//(text) /*(text)*/ : 주석
+
+System.out.println("hello Java!");
+ => ()안의 내용을 콘솔창에 출력시키는 명령어
+
+*단축키
+ctrl + shift + F : 코드 자동 정렬
+ctrl + shift + / : 선택 영역 주석 처리
+ctrl + shift + \ : 선택 영역 주석 해제
+ctrl + space : 코드 자동 완성
+ctrl + D : 해당 줄 삭제
+ctrl + F : 검색
+ctrl + f11 : 코드 실행
+ctrl + alt + up/down : 줄 복사
+alt + up/down : 줄 이동
+
+
+변수 : 데이터를 담을 수 있는 메모리 공간
+*변수의 선언과 초기화
+ - 선언 : (타입) (변수명);
+ - 초기화 : (변수명) = (값);
+
+메소드(method)
+- 객체의 행위를 표현
+- 기능을 수행하기 위해 클래스 안에서 정의되는 것
+
+

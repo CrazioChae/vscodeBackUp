@@ -1,0 +1,27 @@
+자료구조 : 데이터를 어떤 방식으로 저장할 건지에 대한 구조
+
+1.  List(선형구조) : Linear
+
+- 추가삭제를 할 때 메모리 낭비가 심함
+- 인덱스를 부여할 수 있음
+  \*Linked List : 데이터들끼리 순차적인 연결
+
+2.  Stack(FILO) : First in Last out
+3.  Queue(FIFO) : First in First out
+4.  Tree
+5.  Map
+    _Thread_
+
+![](자료구조.png)
+
+정렬(sort) 알고리즘
+
+1. Bubble Sort
+
+- 자료가 N개라면 N-1 \* N-1 회의 검사를 한다.
+
+2. Selection Sort
+
+- 
+
+Binary Sort

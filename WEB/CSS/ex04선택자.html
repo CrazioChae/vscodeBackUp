@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        div li {
+            color: red;
+        }
+
+        div span {
+            color: green;
+        }
+
+        li+li {
+            color: blue;
+        }
+
+        li+li+li {
+            color: darkmagenta;
+        }
+    </style>
+</head>
+
+<body>
+
+    <!--
+        1. 자손 선택자 : 공백
+        2. *자식 선택자 : >
+        3. 형제 선택자(인접) : +
+        4. 형제 선택자(후행) : ~
+
+        가상 클래스 선택 : p > span:nth-child(2)
+    -->
+
+    <div>
+        <strong>
+            <li>list1</li>
+            <li>list2</li>
+        </strong>
+        <ol>
+            <li>list3</li>
+            <li>list4</li>
+            <li>list5</li>
+            <li>list6</li>
+            <span>span1</span>
+        </ol>
+    </div>
+
+
+</body>
+
+</html>

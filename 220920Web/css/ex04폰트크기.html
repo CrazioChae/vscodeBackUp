@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        #span1{
+            font-size: 50px;
+        }
+        p{
+            font-size: px;
+        }
+        #span2{
+            font-size: 2em;
+        }
+        /*
+            px = 값이 고정되어있다.
+            em = 부모의 배수만큼 증가
+            em,% 등 동적인 단위를 사용해야하는 이유는?
+                - 반응형 웹페이지(모바일)에서 px을 활용하면 크기가 고정되서 이상하다.
+                - 자동으로 화면의 비율에 맞게 줄어들거나 커지기 위해서 동적인 단위가 필요
+        */
+    </style>
+</head>
+<body>
+    <span id="span1">px로 조정한 글자</span>
+    <p>
+        <span id="span2">em으로 조정한 글자</span>
+    </p>
+</body>
+</html>

@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        div {
+            width: 200px;
+            height: 200px;
+        }
+
+        #div1 {
+            background-color: crimson;
+        }
+
+        #div2 {
+            /*
+        relative = 초기 생성된 위치(static)를 기준으로 이동시킬 때 사용
+            */
+            background-color: blueviolet;
+            position: relative;
+            left: 100px;
+        }
+
+        #div3 {
+            /*
+        alsolute = 절대위치를 지정하는데 독립적인 공간을 할당(body 8px 무시됨)
+        단, 부모가 relative, absoulte라면 부모의 생성위치가 기준점
+            */
+            background-color: peru;
+            position: absolute;
+            left: 150px;
+            top: 100px;
+        }
+
+        #div4 {
+            background-color: yellowgreen;
+            width: 400px;
+            height: 400px;
+            position: relative;
+            top: 10px;
+        }
+
+        #div5 {
+            /* 
+        fixed : 화면 특정 위치에 값을 고정
+             */
+            background-color: hotpink;
+            position: fixed;
+            bottom: 50px;
+            right: 50px;
+        }
+    </style>
+</head>
+
+<body>
+    <div id="div1"></div>
+    <div id="div2"></div>
+    <div id="div3"></div>
+    <div id="div4"></div>
+    <div id="div5"></div>
+</body>
+
+</html>

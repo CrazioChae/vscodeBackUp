@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <!--
+        form : 사용자가 입력한 데이터들을 묶어서 전달 시켜줌
+        action : 전송할 위치를 적는 공간
+        method : get, post 등 전송방식
+        get방식 : URL에 데이터를 넣어 전송
+        post방식 : 데이터를 숨김
+
+        1. 일반 문자를 입력하는 입력창
+         - input 태그는 닫는 태그가 없다.
+         - 실제 입력한 데이터는 value값 안에 들어간다.★
+         
+        2. 추가적인 속성
+         - placeholder : 입력창에 입력이 없을때 텍스트 불투명
+         - maxlenght : 입력의 최대 길이
+
+        3. <label> 특정 input 태그와 연결을 시켜주는 텍스트 박스
+         - for 속성을 사용해 id값과 연결함.
+        
+        4. checkbox vs radio
+         - checkbox : 복수개의 데이터를 선택
+         - radio : 다중 버튼중 하나만 선택
+         - name : 그룹화(컴퓨터가 같은 묶음이라고 생각하게)
+         - value : 실제 선택한 값을 전달 할 때 사용
+
+        5. 폼태그의 최종적으로 값을 보내주는 버튼 = submit
+         - form태그에 작성했던 action의 url로 값을 전달
+    -->
+
+    <form action="#">
+        <input type="text" id="textInput">
+        <input type="text" placeholder="이름을 입력하세요." maxlength="5">
+        <br>
+        <label for="pwInp">비밀번호 : </label>
+        <input type="password" id="pwInp">
+        <br>
+        <input type="checkbox" id="ckInp1">
+        <input type="checkbox" id="ckInp2">
+        <br>
+        <label for="rdmale">남자</label>
+        <input type="radio" name="rdInp" value="male" id="rdmale">
+        <label for="rdfemale">여자</label>
+        <input type="radio" name="rdInp" value="female" id="rdfemale">
+        <br>
+        <input type="file">
+        <br>
+        <input type="color">
+        <br>
+        <input type="range">
+        <br>
+        <input type="date">
+        <br>
+        <input type="datetime">
+        <br>
+        <input type="datetime-local">
+        <br>
+        <select name="select" id="sl">
+            <option value="naver">naver</option>
+            <option value="daum">daum</option>
+        </select>
+        <br>
+        <input type="submit" name="submit" id="submit">
+        <br>
+        <input type="reset" name="reset" id="reset">
+    </form>
+
+
+</body>
+
+</html>

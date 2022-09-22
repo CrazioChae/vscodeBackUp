@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+
+    <pre>
+    <script class="scrpt">
+        // String -> Number
+        // - parseInt() : 문자열을 정수로 변경
+        // - parseFloat() : 문자열을 실수로 변경
+        // - Number() : 다른 자료형을 숫자(정수 | 실수)형으로 변환
+        let txtInt = "10";
+        let txtFloat = "22.5";
+        let txtNum = "123";
+
+        let num1 = parseInt(txtInt);
+        let num2 = parseFloat(txtFloat);
+        document.writeln("<br>str : ", num1);
+        document.writeln("str : ", num2);
+
+        let num3 = Number(txtInt);
+        document.writeln("str : ", num3);
+        // toString() : 문자열로 변경
+        let str1 = String(num1);
+        let str2 = String(num2);
+
+        document.writeln("str : ", str1);
+        document.writeln("str : ", str2);
+
+    </script>
+    </pre>
+
+</body>
+
+</html>

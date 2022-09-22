@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <!--
+        form = 사용자가 입력한 데이터들을 묶어서 다른 공간에 전달 시켜주는 입력폼
+        action = 전송할 위치 적는 공간
+        method = get,post 전송방식 
+    -->
+    <form action="123.html">
+        <!-- 
+            1.일반 문자를 입력하는 입력창
+            - input태그는 닫는 태그가 존재하지 않는다 = 컨텐츠가 없다.
+            - 실제 입력한 데이터는 value속성에 저장 ★
+
+            2. 추가적인 속성
+            - placeholder : 미리보기 텍스트
+            - maxlength : 글수 제한
+        -->
+        <input type="text" value="안녕">
+        <input type="text" placeholder="이름을 입력하세요!" maxlength="5">
+        <br>
+        <!-- 2. 비밀번호 입력하는 창-->
+        <!-- 
+            3. <label>특정 input태그와 연결을 시켜주는 텍스트 박스
+                - for속성을 사용 -> id값과 연결을 시켜야합니다!
+            -->
+        <label for="pw">비밀번호 : </label>
+        <input type="password" id="pw">
+
+        <!-- 
+            4. 체크박스 vs 라디오버튼
+                - 체크박스 : 복수개의 데이터를 선택
+                - 라디오버튼 : 2개면 2중의 1개, 3개면 3개중의 1개\
+                - name : 그룹화(컴퓨터가 같은 묶음이라고 생각하게)
+                - value : 실제 선택한 값을 전달 할 때 사용
+        -->
+        <br>
+        축구<input type="checkbox" name="hobby" value="축구">
+        야구<input type="checkbox" name="hobby" value="야구">
+        <br>
+        남자<input type="radio" name="gender" value="남">
+        여자<input type="radio" name="gender" value="여">
+        <br>
+        <!-- 추가적인 인풋들!-->
+        <input type="file">
+        <br>
+        <input type="color">
+        <br>
+        <input type="range">
+        <br>
+        <input type="date">
+        <input type="datetime-local">
+        <br>
+        <select >
+            <option value="naver">naver</option>
+            <option value="daum">daum</option>
+        </select>
+        <br>
+        <!-- 
+            폼태그의 최종적으로 값을 보내주는 버튼 = submit
+            form태그에 작성했던 action의 url로 값을 전달
+        -->
+        <input type="submit">
+        <input type="reset">
+    </form>
+</body>
+</html>

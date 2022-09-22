@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <pre>
+    <script>
+        // 객체(object) = 여러개의 데이터를 담아 관리하는 데이터 타입
+        // 1. 특징 데이터의 구조가 Key : Value
+        // 2. {}를 활용하여 생성
+        // 3. json형태의 데이터로 활용 -> 데이터 통신에서 가장 많이 사용하는 타입
+        let birthDay1 = ["1111", "2222", "3333", "4444"];
+        let birthDay2 = {
+            myBirth: "1234",
+            broBirth: 2345,
+            momBirth: true,
+            dadBirth: [4, 5, 6, 7]
+        }
+        document.writeln("<br><b>배열과 객체 생성</b>");
+        document.writeln("birthDay1 : ", birthDay1);
+        document.writeln("birthDay2 : ", birthDay2);
+
+        // 데이터 접근하기
+        // 배열은 인덱스 번호를 활용하여 접근 -> 배열[인덱스]
+        let birth1_2 = birthDay1[2];
+        document.writeln("<br><b>배열접근하기</b>");
+        document.writeln("let birth1_2 = birthDay1[2]");
+        document.writeln("birth1_2 : ", birth1_2);
+
+        // 객체는 Key값을 통해 접근 -> 객체이름.Key
+        let birth2_mom = birthDay2.momBirth;
+        document.writeln("<br><b>객체접근하기</b>");
+        document.writeln("let birth2_mom = birthDay2.momBirth");
+        document.writeln("birth2_mom : ", birth2_mom);
+
+        // 값을 수정
+        document.writeln("<br><b>값 수정하기</b>");
+        birthDay1[2] = "1234";
+        document.writeln("birthDay1[2] = \"1234\"");
+        document.writeln("birthDay1[2] : ", birthDay1[2]);
+
+        birthDay2.momBirth = "3456";
+        document.writeln("birthDay2.momBirth = \"3456\"");
+        document.writeln("birthDay2.momBirth : ", birthDay2.momBirth);
+
+        // 복잡한 구조의 접근방법
+        let person = [
+            { name: "정배", age: "24" },
+            { name: { name2: "김지은" }, age: 20 }
+        ];
+        document.writeln("<br><b>복잡한 객체 접근하기</b>");
+        document.writeln("person : ", person);
+        document.writeln("let person = \[\
+        <br>{ name: \"정배\", age: \"24\" }\,\
+        <br>{ name: { name2: \"김지은\" }, age: 20 \}\
+        ];");
+
+        // 김지은 이름을 꺼내 출력하기
+        let jiEun = person[1].name.name2;
+        document.writeln("<br><b>김지은 이름을 꺼내 출력하기</b>");
+        document.writeln("let jiEun = person[1].name.name2");
+        document.writeln("jiEun : ", jiEun);
+
+    </script>
+    </pre>
+</body>
+
+</html>

@@ -1,0 +1,117 @@
+DESC DEPARTMENTS
+
+*TAB_NAME, COL_NAME 
+ - 문자로 시작해야 함
+ - 1자~30자까지 가능
+ - 중복 불가능
+
+테이블 생성
+TAB_NAME
+COL_NAME, DATA_TYPE, DATA_SIZE
+
+CREATE TABLE DEPT(
+    DEPTNO NUMBER(2),
+    DNAME VARCHAR2(14),
+    LOC VARCHAR2(13)
+);
+
+INSERT INTO DEPT
+VALUES(10, 'ITCENTER', 1700);
+
+INSERT INTO DEPT
+VALUES(20, 'ADMIN', 1800);
+
+COMMIT;
+
+VARCHAR2, CHAR, NUMBER, DATE, LONG
+
+CHAR(5) : 고정길이, 성능 높음, 용량 큼
+ - DISK 구조변경
+VARCHAR2(5) : 가변길이, 성능 낮음, 용량 작음
+
+NUMBER(p, s) : 38자리 숫자 저장, 가변길이
+ - p : 정밀도, 유효 십진 자릿수를 표현
+ - s : 소수의 유효 자리수를 표현
+
+
+90번 부서에 근무하는 사원의 이름과 급여를 저장하는 DEPT90 테이블을 생성
+CREATE TABLE DEPT90(
+    LAST_NAME CHAR(5),
+    SALARY NUMBER(5)
+);
+
+CREATE TABLE MEMBER(
+    USER_ID VARCHAR2(20),
+    USER_PW VARCHAR2(20),
+    USER_NAME VARCHAR2(20),
+    USER_AGE NUMBER(10)
+);
+
+SELECT LAST_NAME, SALARY
+FROM EMPLOYEES
+WHERE DEPARTMENT_ID = 90;
+
+INSERT INTO DEPT90
+VALUES(dfdffd);
+
+COMMIT;
+
+CREATE TABLE DEPT90
+AS
+SELECT LAST_NAME, SALARY
+FROM EMPLOYEES
+WHERE DEPARTMENT_ID = 90;
+
+DESC DEPT90
+
+*AS 를 사용하면 서브쿼리문을 사용하여 테이블 생성
+
+ALTER TABLE
+ ADD : 컬럼 추가
+ MODIFY : 컬럼의 DATA_TYPE, DATA_SIZE 변경
+ DROP : 컬럼 삭제
+
+ALTER TABLE DEPT
+ADD (JOB_ID VARCHAR2(9));
+
+INSERT INTO DEPT(JOB_ID)
+VALUES ('AA');
+
+UPDATE DEPT
+SET JOB_ID ='AA'
+WHERE DEPTNO = 10;
+
+ALTER TABLE DEPT
+ADD (DNAME VARCHAR2(10));
+
+ALTER TABLE DEPT
+MODIFY (DNAME VARCHAR2(5));
+
+ALTER TABLE DEPT
+DROP COLUMN JOB_ID;
+
+ALTER TABLE DEPT
+SET UNUSED (LOC);
+
+SET UNUSED : D.D 에 저장되어있는 USED 정보를 UNUSED 로만 변경
+ - 동시성이 보장이 됨
+ - 다만 데이터를 삭제하려는 경우 데이터는 그대로 남아있음
+
+ALTER TABLE DEPT]
+DROP UNUSED COLUMNS;
+
+DROP TABLE DEPT;
+
+DELETE, TRUNCATE, DROP
+ DELETE : DML, 행 삭제, DATA 저장공간 남음, ROLLBACK
+  - 행단위 삭제
+ TRUNCATE : DDL, 행 삭제, DATA 저장공간 회수, 복구 불가
+  - TABLE 초기화
+ DROP : DDL, DATA & INFO(D.D) 삭제, 모두 삭제, 복구 불가
+
+
+*제약 조건 : 제약을 주는 조건
+ - COLUMN 에 
+ - 종속된 테이블의 삭제를 방지
+ - NOT NULL, UNIQUE, PRIMARY KEY, FOREIGN KEY
+ - CHECK : 조건을 줄 수 있다.

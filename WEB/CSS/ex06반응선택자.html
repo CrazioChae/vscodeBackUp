@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        h1:hover{
+            color: blue;
+        }
+
+        h1:active{
+            color: orangered;
+        }
+
+        div p span{
+            color: yellow;
+        }
+        div .my_color span{
+            color: red;
+        }
+    </style>
+</head>
+<style>
+
+</style>
+
+<body>
+    <!--반응선택자를 활용한 디자인 변경
+        마우스를 올릴 때 글자색 변경
+        클릭 때 글자색 변경
+        
+        div요소 : 공간분할
+        p요소 : 문단분        할        
+        
+        display : block
+         -  block방식
+        display : inline
+         - 컨텐츠 내용이 끝나는 지점까지 너비를 가지는 속성
+        display : none
+         - 보이는지의 속성
+    -->
+
+    <h1>
+        반응선택자를 활용한 디자인 변경
+    </h1>
+
+    <div>
+        <p class="my_color">
+            <span>
+                span1
+            </span>
+        </p>
+    </div>
+</body>
+
+</html>

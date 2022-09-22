@@ -1,0 +1,15 @@
+{
+        //* Highlight Matching Tag
+    "highlight-matching-tag.styles": {
+        "opening": {
+            "name": {
+                "highlight": "rgba(180, 20, 80, 0.6)"
+            }
+        },
+        "closing": {
+            "name": {
+                "highlight": "rgba(180, 20, 80, 0.6)"
+            }
+        }
+    }
+}

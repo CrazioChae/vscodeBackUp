@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <pre>
+    <script>
+        // 1. confirm
+        // 2. prompt
+        // 3. document
+        document.writeln("<br>");
+        let conf = confirm("코로나 체크점?");
+        document.writeln("confirm : ", conf);
+
+        if (conf) {
+            let prom = prompt("양성임 음성임?", "양성");
+            document.writeln("prompt : ", prom);
+            if (prom === "양성") {
+                document.writeln(prom, " 축하드립니다.");
+            } else {
+                document.writeln(prom, " 안타깝네요.");
+            }
+        } else {
+            alert("하지말든가요");
+            document.writeln("하지마 그냥");
+        }
+
+    </script>
+    </pre>
+</body>
+
+</html>

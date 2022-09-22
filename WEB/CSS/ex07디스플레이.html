@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        #sp {
+            display: none;
+        }
+
+        div {
+            width: 200px;
+            height: 200px;
+
+        }
+
+        #container {
+            width: 1000px;
+            height: 1000px;
+            display: flex;
+        }
+
+        #div1 {
+            background-color: red;
+        }
+
+        #div2 {
+            background-color: blue;
+        }
+
+        #div3 {
+            background-color: green;
+        }
+    </style>
+</head>
+
+<body>
+
+<!--
+    display : block = 한줄 전체를 차지한다
+    display : inline = 컨텐츠의 크기만큼만 공간을 차지,
+                    가로, 세로
+    display : none = 화면서에서 보이지 않게 함
+    display : flex = 레이아웃을 배치할 때 가장 많이 사용되는 속성
+    **참고 : https://studiomeal.com/archives/197
+-->
+    <p>블록 요소 입니다</p>
+    <span>인라인 요소 입니다</span>
+    <br>
+    <span id="sp">none 입니다</span>
+
+    <div id="container">
+        <div id="div1">11111111111111111</div>
+        <div id="div2">22222222222222222</div>
+        <div id="div3">33333333333333333</div>
+    </div>
+
+</body>
+
+</html>

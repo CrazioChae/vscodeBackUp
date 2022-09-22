@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+
+    <pre>
+    <script>
+        // 함수 : 특정 기능들을 묶어 활용할때 사용
+        // syso(), print(), alert() = 내장함수
+        // 함수의 키워드는 ()
+        // 함수 제작 : funtion(){};
+
+        let res;
+
+        function pizzaMake(params) {
+            document.writeln("<br>")
+            if (params === "불고기") {
+                res = "불고기 피자 매진";
+                return res;
+            }
+            document.writeln("도우 세팅");
+            document.writeln("소스 세팅");
+            document.writeln(params, "세팅");
+            document.writeln(params, "피자 제작 완료");
+            res = "피자 배달완료";
+            return res;
+        }
+
+        let pizza = prompt("머선 피자?", "불고기");
+        let complete = pizzaMake(pizza);
+        document.writeln("return : ", complete);
+
+        /* function pizza2() {
+            document.writeln("도우 세팅");
+            document.writeln("소스 세팅");
+            document.writeln("불고기 세팅");
+            document.writeln("피자 제작 완료");
+        } 
+        pizza2(); */
+
+
+
+    </script>
+    </pre>
+
+</body>
+
+</html>
