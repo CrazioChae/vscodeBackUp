@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        #txt {
+            background-color: darkkhaki;
+            border-radius: 1em;
+            font-weight: bold;
+            text-align: center;
+        }
+
+        #btn {
+            background-color: blueviolet;
+            border-radius: 1em;
+            font-weight: bold;
+        }
+    </style>
+</head>
+
+<body>
+    <h1 id="txt">Dom 조작한 스타일 제어</h1>
+    <button id="btn">
+        스타일 변경!
+    </button>
+
+    <pre>
+    <script>
+        let btn = document.getElementById("btn");
+        let txt = document.getElementById("txt");
+
+        // 내부, 외부 방식의 css 코드를 불러오는 방법
+        // getComputedStyle("요소").Key
+        btn.addEventListener("click", changeStyle);
+        console.log("inner outer style : ", (getComputedStyle(txt).color));
+
+        function changeStyle() {
+            txt.style.color = "cyan";
+            txt.style.backgroundColor = "gray";
+            txt.style.fontStyle = "italic";
+        };
+
+    </script>
+    </pre>
+</body>
+
+</html>

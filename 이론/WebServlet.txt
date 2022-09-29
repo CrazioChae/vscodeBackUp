@@ -1,0 +1,69 @@
+Server -> Servlet(java언어를 기반으로 server에서 동작하는 프로그램)
+1. 환경설정
+- apache tomcat : 오픈소스, 다양한 모듈, 소스코드 많음
+- 9.0 ver download 
+- eclipse --> servers탭 --> create --> apache tomcat 9.0ver --> browse 실제로 설치한 파일의 경로를 잡아주기
+- port number를 8080이 아닌 다른 값으로 변경
+
+2. web dynamic project 생성
+- 주의할 점 : target runtime이 설정한 server로 잡혀있는 지 확인!
+
+3. Servlet 생명주기
+- Servlet(.java --> class파일) HttpServlet상속 받는 클래스
+- 상속을 받는다 == 부모 클래스가 가지고 있는 메소드 재사용, 재정의
+- 생성자 ---> init(초기화) ---> service(java main method) ---> destroy
+- server가 한번 생성된 상태에서 계속 요청이 들어오면 service 메소드만 재사용된다.
+
+4. Servlet에서 화면에 출력하기
+- 응답을 되돌려준다
+- 응답과 관련된 객체 : 매개변수로 받아오는 response
+- 응답과 관련된 객체 안에서 출력을 도와주는 도구 꺼내오기
+---> PrintWriter out = response.getWriter(); **주의할 점!! new 안쓴다!!!**
+- 한글 인코딩을 잡아주려면 response에 대해서 잡아줘야한다.
+- out 객체를 생성하기 전에 한글 인코딩을 잡아줄 것! 
+- 한글 인코딩 잡아주는 방식 
+  : response.setContentType("text/html;charset=UTF-8")
+- out.print("<h1>한글</h1>")
+
+5. Servlet 왜 사용하는가?
+- 정적인 페이지가 아니라 사용자, 시간, 장소에 따라서 다른 결과값을 보여주는 동적인 페이지 만들기(로직을 사용하겠다)
+- java언어의 다양한 문법을 사용 가능(if문, for문, 배열, JDBC코드 등등)
+
+6. html ---> Servlet 데이터 전송
+- html에서 Servlet 데이터 전송 태그 : form 태그
+- 데이터 전송 3가지 조건 : 어디로(action), 어떤 값을(name), 언제(submit)
+**주의할 점 : action을 잡아줄 때는 servlet url mapping값을 잡아줘야한다.**
+
+7. 데이터 전송방식
+- form method 속성에 지정한다.
+- 속성값을 지정하지 않으면 기본값으로 get방식을 잡는다.
+- get 방식 (데이터 단순 조회)
+1) url에 데이터 포함
+ex) url?name=value&name=value ------> 쿼리스트링이라고 부른다.
+2) 데이터 길이 제한이 있다(브라우저마다 다름)
+3) 보안 약함 ---> 캐싱 할 수 있음
+- post 방식 (데이터 생성)
+1) url에 데이터 포함하지 않는다.
+2) 데이터 길이에 제한이 없다
+3) 보안 강함 ---> 캐싱 할 수 없음
+
+8. servlet에서 요청값을 가져오는 방법
+- 요청과 관련된 데이터 객체 : request
+- post방식으로 한글 값을 받아오는 경우 한글 인코딩 잡아주기
+ex) request.setCharacterEncoding("UTF-8")
+- 값을 꺼내오기
+ex) String name = request.getParameter("name값");
+----> 만약 받아온 결과값을 숫자로 변환 --> Interger.parserInt(name)
+- checkbox와 같이 동일한 name값을 갖는 여러개의 데이터를 받아오려면?
+ex) String[] hobby = request.getParamterValues("hobby");
+
+
+
+
+
+
+
+
+
+
+

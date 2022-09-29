@@ -12,28 +12,30 @@
 
     <pre>
     <script>
-        let res;
+        document.writeln("<br>")
+        let res = 0;
 
-        function burgerOrder(params) {
+        function burgerOrder(burger, setMenu) {
+            res = 5000;
+            document.writeln("<b><", burger, "버거 ", setMenu, " 만들기></b>");
+            document.writeln("참깨빵 위에 ", burger, " 패티");
+            document.writeln("특별한 소스에 양상추");
+            document.writeln("피자 치클 토마토까지<br>");
 
-            document.writeln("");
-            document.writeln("");
-            document.writeln("");
-            document.writeln("");
-            document.writeln("");
-            document.writeln("");
-
+            if (setMenu === "세트") {
+                document.writeln("콜라 2000원 추가");
+                res += 2000;
+                document.writeln("감튀 1500원 추가");
+                res += 1500;
+            }
+            document.writeln(burger, "버거 ", setMenu, " 완성");
             return res;
         }
 
-
-
-
-
-
-
-
-
+        let burger = prompt("무슨버거 먹나요?", "새우");
+        let setMenu = prompt("세트? 단품?", "세트");
+        let price = burgerOrder(burger, setMenu);
+        document.writeln("금액 : ", price);
     </script>
     </pre>
 

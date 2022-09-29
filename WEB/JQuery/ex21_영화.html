@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <input type="text" value="20210101" id="inp-txt">
+
+    <button id="btn">
+        전송하기!
+    </button>
+
+    <pre>
+    <script src="jquery-3.6.1.min.js"></script>
+    <script>
+        let inpTxt = document.getElementById("inp-txt");
+        let apikey = '381c2a3324e3fca02d24c02620bfe0a7';
+        let apidate = inpTxt.getAttribute("value");
+        let apiurl = 'http://kobis.or.kr/kobisopenapi/webservice/rest/boxoffice/searchWeeklyBoxOfficeList.json?key=' + apikey + '&targetDt=' + apidate;
+
+        $('#btn').on("click", function () {
+            $.ajax({
+                url: apiurl, // 데이터 보낼 url
+                type: "get", // 데이터 전송 타입 기본값 get
+                // data : 보낼 값이 있으면 작성, 없다면 생략
+                success: function (response) {
+                    alert("연결 성공");
+                    console.log(response);
+                    let movieNmList = response.boxOfficeResult.weeklyBoxOfficeList;
+                    for (let i = 0; i < movieNmList.length; i++) {
+                        document.writeln(movieNmList[i].movieNm, "<br>");
+                    }
+                },
+                error: function () {
+                    alert("연결 실패");
+                },
+            });
+        });
+
+
+
+
+
+    </script>
+    </pre>
+</body>
+
+</html>

@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <b id="icon-good">😊</b>
+    <span id="number">0</span>
+    <b id="icon-sad">😢</b>
+    <br><br>
+    <button id="like">
+        좋아요
+    </button>
+    <button id="hate">
+        슬퍼요
+    </button>
+
+    <pre>
+    <script>
+        let cnt = 0;
+        let icon_good = document.getElementById("icon-good");
+        let icon_sad = document.getElementById("icon-sad");
+
+        let btn_like = document.getElementById("like");
+        btn_like.addEventListener("click", btnLike);
+        btn_like.addEventListener("click", showIcon);
+
+        let btn_hate = document.getElementById("hate");
+        btn_hate.addEventListener("click", btnHate);
+        btn_hate.addEventListener("click", showIcon);
+
+        showIcon();
+
+        function showIcon() {
+            if (cnt > 0) {
+                icon_good.style.visibility = "visible";
+                icon_sad.style.visibility = "hidden";
+            } else if (cnt == 0) {
+                icon_good.style.visibility = "hidden";
+                icon_sad.style.visibility = "hidden";
+            } else {
+                icon_good.style.visibility = "hidden";
+                icon_sad.style.visibility = "visible";
+            }
+        }
+
+        function btnLike() {
+            cnt += 1;
+            document.getElementById("number").innerText = cnt;
+        }
+
+        function btnHate() {
+            cnt -= 1;
+            document.getElementById("number").innerText = cnt;
+        }
+
+    </script>
+    </pre>
+
+
+
+</body>
+
+</html>

@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=]\, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <h1 id="txt1">
+        <em>
+            <b>
+                h1 tag here
+            </b>
+        </em>
+    </h1>
+    <h2 id="txt2">
+        <em>
+            <b>
+                h2 tag here
+            </b>
+        </em>
+    </h2>
+    <p class="num">index0</p>
+    <p class="num">index1</p>
+    <br><br><br>
+    <pre>
+    <script>
+        // DOM을 만드는 이유
+        // DOM : document(html문서)를 만들어주는데 태그, 속성, 컨텐츠를 분리시켜서 만듬
+        // <h1 id="txt"> h1태그 글자 </h1> -> <h1>(태그), id(속성), h1태그 글자(컨텐츠)
+        // 이유 : 각 태그, 속성, 컨텐츠에 접근을 위해
+
+        // 할일 : id="txt"인 요소를 가져와, 내부 컨텐츠를 출력하고 수정하기
+        // 1. 요소를 가져오는 최상위 객체 : document
+        // 2. 명령문을 작성(id 찾기) = get + element + ById(id txt)
+        // 3. 주어 + 동사 + 목적어 + 보어
+        // 4. id값을 통해 요소에 접근할 때는 document.getElementById("id값")
+        let h1Tag = document.getElementById("txt1");
+        document.writeln("h1Tag : ", h1Tag);
+
+        let h2Tag = document.getElementById("txt2");
+        document.writeln("h2Tag : ", h2Tag);
+
+        // 1. 가져온 요소의 컨텐츠(내용)을 추출
+        // 2. 명령문(요소 내의 html or text를 가져오기)
+        // 3. innerHTML vs innerText
+        //  - innerHTML : 태그를 모두 인식하여 가져옴
+        //  - innerText : 오직 문자만 인식하여 가져옴
+        let h1_html = h1Tag.innerHTML;
+        document.writeln("h1_html : ", h1_html);
+        document.writeln("h1Tag.innerHTML : ", h1Tag.innerHTML);
+
+        let h1_text = h1Tag.innerText;
+        document.writeln("h1_text : ", h1_text);
+        document.writeln("h1Tag.innerText : ", h1Tag.innerText);
+
+        // 1. 가져온 요소에서 컨텐츠값을 수정
+        h1Tag.innerHTML = "<em>원본 데이터 변경</em>";
+        h2Tag.innerText = "<em>원본 데이터 변경</em>";
+
+        // todo : class가 num인 요소들을 가져와 그 안의 텍스트를 추출, 수정
+        // 1. 모든 문서를 담고있는 주체에 요청 -> document
+        // 2. 명령문 작성(class가 num인 요소를 가져오기)
+        // 3. 명령을 작성할때 class, tag등 중복 요소들은 elements(복수개) 요청
+        // 4. 복수개의 데이터를 리턴받으면 리턴받는 타입은 배열이다
+        // 5. getEle~가 가지고온 복수개의 데이터의 정확한 타입은  htmlCollection객체이다.
+        // - 유사배열 : 실제 배열은 아니지만 인덱스와 길이는 사용가능
+        // - 사용하고 싶다면 배열로 형변환하여 사용
+        let pTag = document.getElementsByClassName("num");
+        document.writeln(pTag);
+        let p_html0 = pTag[0].innerHTML;
+        let p_html1 = pTag[1].innerHTML;
+
+        // 복수개의 데이터에 접근할 때는 하상 인덱스를 기입
+        document.writeln(p_html0);
+        document.writeln(p_html1);
+
+    </script>
+    </pre>
+
+    <br><br><br><br><br><br><br><br>
+    <br><br><br><br><br><br><br><br>
+</body>
+
+</html>

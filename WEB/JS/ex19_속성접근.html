@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        * {
+            position: relative;
+            text-align: center;
+        }
+
+        #img-src {
+            width: 100px;
+            height: 100px;
+        }
+
+        button {
+            text-align: left;
+        }
+    </style>
+</head>
+
+<body>
+    <input type="text" id="input-txt">
+    <br><br>
+    <button id="inp-btn" onclick="inputValue()">
+        인풋값 가져오기
+    </button>
+    <br><br>
+
+    <img src="https://cdn-store.leagueoflegends.co.kr/images/v2/emotes/3155.png" alt="" id="img-src">
+    <br><br>
+    <button id="img-btn" onclick="imgAttr()">
+        이미지 태그 속성 접근
+    </button>
+
+    <pre>
+    <script>
+
+        let txt = document.getElementById("input-txt");
+        let inp_btn = document.getElementById("inp-btn");
+        let img = document.getElementById("img-src");
+        let img_btn = document.getElementById("img-btn");
+
+        function inputValue() {
+            // 1. inputTag element 수집
+            // 2. inner value 출력
+
+            // value값을 통해 접근해야만 input내의 값을 가져올 수 있다.
+            alert(txt.value);
+        }
+
+        function imgAttr() {
+            // 함수 실행하면 img태그의 src속성을 들고오기
+            // 1. 이미지 태그 수집
+            // 2. 수집한 태그에서 src값 접근
+            let img_src = img.getAttribute("src");
+            alert(img_src);
+            let img_id = img.getAttribute("id");
+            alert(img_id);
+            img.setAttribute("src", "https://cdn-store.leagueoflegends.co.kr/images/v2/emotes/3153.png");
+        }
+
+
+
+
+
+
+
+
+
+    </script>
+    </pre>
+
+</body>
+
+</html>

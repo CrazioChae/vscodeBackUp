@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+
+    <h1 id="txt">
+        Here's h1 Tag!
+    </h1>
+
+    <button id="btn-han">
+        이벤트 핸들러 버튼
+    </button>
+
+    <button id="btn-lis">
+        이벤트 리스너 버튼
+    </button>
+
+    <button id="btn-eve">
+        이벤트 객체용 버튼
+    </button>
+
+    <pre>
+    <script>
+        // event = 특정 요소에 내가 원하는 시점에 기능을 부여한다.
+        // ex) click, dbclick, mouseover, mouseout ...
+
+        // eventHandler vs eventListener
+        // 1. eventHandler
+        // - html태그에 설정, 이벤트 프로퍼티 설정
+        // - 하나의 요소에 하나의 이벤트밖에 부여할 수 없다.
+        // 2. eventListener
+        // - 하나의 요소에 여러개의 이벤트를 부여할 수 있다.
+
+        // 실습 : 버튼을 클릭 시 id가 txt인 요소의 컨텐츠 값을 팝업창을 통해 출력
+        // 1. 컨텐츠값을 팝업창으로 출력하는 함수
+        function popUp() {
+            let h1_text = document.getElementById("txt").innerText;
+            alert(h1_text);
+        }
+        function popUp2() {
+            let h1_text = document.getElementById("txt").innerText;
+            alert("두번째 함수");
+        }
+
+        // 2. 이벤트 프로퍼티(키값) 사용
+        // - 이벤트 부여할 요소를 수집
+        // - 기능 할당하기
+        // - 핸들러를 통한 이벤트 부여방법의 단점은 이벤트가 하나만 적용됨
+        let btnHand = document.getElementById("btn-han");
+        btnHand.onclick = popUp;
+
+        // 3. 이벤트 리스너를 통한 이벤트 부여
+        // 장점 : 다중이벤트 처리가 가능 / 단점 : 코드가 긺
+        // - 이벤트 부여할 요소를 수집
+        // - 가져온 요소에 리스너를 통해 이벤트를 할당
+        // - element.add~ner("이벤트 종류", "실행할 함수명");
+        let btnList = document.getElementById("btn-lis");
+        btnList.addEventListener("click", popUp);
+
+        // 4. 함수를 직접 등록
+        btnList.addEventListener("click", function () {
+            alert("방금만든 따끈따끈한 익명의 함수");
+        });
+
+        // 5. 이벤트 객체 : 이벤트가 발생했을 때 종류, 주체 등을 알아낼 수 있다.
+        // - target : 발생하는 주체, - type : 이벤트의 종류
+        // - 매개변수 없이 사용하려면 event 기본값을 호출
+        let btnEven = document.getElementById("btn-eve");
+        btnEven.onclick = function (e) {
+            console.log("e : ", e);
+            console.log("e.type : ", e.type);
+            console.log("e.target : ", e.target);
+        };
+
+        // 6. 여러 요소에 이벤트를 부여
+        let btns = document.getElementsByTagName("button");
+        console.log("btns : ", btns);
+        for (let i = 0; i < btns.length; i++) {
+            btns[i].addEventListener("click", function () {
+                alert(btns[i] + "에 대한 이벤트");
+            });
+        };
+
+        let arr = Array.from(btns);
+        arr.forEach(function (data) {
+            data.addEventListener("click", function () {
+                alert("for-each문을 사용한 이벤트");
+            });
+        });
+
+        // 8. 선택자를 사용
+        let selectorBtn = document.querySelector("#btn-han");
+        let selectorAll = document.querySelectorAll("button");
+
+        console.log("querySelector : ", selectorBtn);
+        console.log("querySelectorAll : ", selectorAll);
+
+    </script>
+    </pre>
+
+</body>
+
+</html>
