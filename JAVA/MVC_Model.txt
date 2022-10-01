@@ -50,3 +50,4 @@ MVC Pattern Rule
  View : Model 단계를 표현하기 위해 UI를 제공
  Controller : View / Model 사이에 위치해 사용자로부터 정보 입력
   Model 통해 정보를 처리, 이후 처리한 정보를 View에 전달
+
