@@ -59,11 +59,3 @@ ex) String[] hobby = request.getParamterValues("hobby");
 
 
 
-
-
-
-
-
-
-
-

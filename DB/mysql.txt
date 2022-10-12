@@ -1,0 +1,11 @@
+SHOW TABLES
+
+UPDATE USER 
+SET PASSWORD = PASSWORD('12345')
+WHERE host='localhost'
+AND user='root';
+
+EXIT
+
+MYSQL -U ROOT -T
+12345
