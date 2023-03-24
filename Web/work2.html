@@ -1,0 +1,150 @@
+<html>
+
+<head>
+    <meta charset="UTF-8">
+    <title>HTML 과제</title>
+    <style>
+        nav ul {
+            list-style-type: none;
+            margin: 0;
+            padding: 0;
+            overflow: hidden;
+            background-color: #333;
+        }
+
+        nav li {
+            float: left;
+        }
+
+        nav li a {
+            display: block;
+            color: white;
+            text-align: center;
+            padding: 14px 16px;
+            text-decoration: none;
+        }
+
+        nav li a:hover {
+            background-color: #111;
+        }
+
+        figure img {
+            max-width: 100%;
+            height: auto;
+        }
+    </style>
+</head>
+
+<body>
+    <header>
+        <p>여기가 header 입니다.</p>
+        <h1>Tesla Electric Vehicles</h1>
+    </header>
+    <nav>
+        <p>여기가 nav 입니다.</p>
+        <ul>
+            <li><a href="#">Model S</a></li>
+            <li><a href="#">Model X</a></li>
+            <li><a href="#">Model 3</a></li>
+            <li><a href="#">Model Y</a></li>
+            <li><a href="#">Cybertruck</a></li>
+            <li><a href="#">Roadster</a></li>
+        </ul>
+    </nav>
+    <figure>
+        <p>여기가 figure 입니다.</p>
+        <img src="https://www.tesla.com/sites/default/files/modelsx-new/social/model-x-social.jpg" alt="Model X">
+        <figcaption>
+            <h2>Model X Features</h2>
+        </figcaption>
+    </figure>
+
+    <article>
+        <p>여기가 article 입니다.</p>
+        <section>
+            <p>여기가 section 입니다.</p>
+            <p>The Model X is a mid-size, all-electric luxury SUV that boasts impressive performance and advanced
+                features such as:</p>
+            <ul>
+                <li>0-60 mph in as little as 2.5 seconds</li>
+                <li>Range of up to 371 miles on a single charge</li>
+                <li>Falcon Wing doors for easy entry and exit</li>
+                <li>Autopilot advanced safety and convenience features</li>
+            </ul>
+            <h2>Type 속성을 사용해 봅시다.</h2>
+            <p>Type 속성에는 다양한 값이 있습니다.</p>
+            <ul>
+                <li>
+                    <strong>color:</strong>
+                    <input type="color" name="color" value="#ff0000">
+                </li>
+                <li>
+                    <strong>date:</strong>
+                    <input type="date" name="date">
+                </li>
+                <li>
+                    <strong>datetime:</strong>
+                    <input type="datetime" name="datetime">
+                </li>
+                <li>
+                    <strong>datetime-local:</strong>
+                    <input type="datetime-local" name="datetime-local">
+                </li>
+                <li>
+                    <strong>email:</strong>
+                    <input type="email" name="email">
+                </li>
+                <li>
+                    <strong>month:</strong>
+                    <input type="month" name="month">
+                </li>
+                <li>
+                    <strong>number:</strong>
+                    <input type="number" name="number">
+                </li>
+                <li>
+                    <strong>range:</strong>
+                    <input type="range" name="range">
+                </li>
+                <li>
+                    <strong>search:</strong>
+                    <input type="search" name="search">
+                </li>
+                <li>
+                    <strong>tel:</strong>
+                    <input type="tel" name="tel">
+                </li>
+                <li>
+                    <strong>time:</strong>
+                    <input type="time" name="time">
+                </li>
+                <li>
+                    <strong>url:</strong>
+                    <input type="url" name="url">
+                </li>
+                <li>
+                    <strong>week:</strong>
+                    <input type="week" name="week">
+                </li>
+            </ul>
+        </section>
+    </article>
+
+    <aside>
+        <h2>aside를 사용해 봅시다.</h2>
+        <ul>
+            <li>
+                <a href="https://www.tesla.com/">테슬라 홈페이지</a>
+            </li>
+            <li>
+                <a href="https://www.tesla.com/inventory/new/mx">구매 페이지</a>
+            </li>
+        </ul>
+    </aside>
+
+    <footer>
+        <p>footer 입니다.</p>
+        <p>Thanks to tesla.com</p>
+    </footer>
+
+</body>
