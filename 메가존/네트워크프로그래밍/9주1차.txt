@@ -1,0 +1,5 @@
+    1. FTP의 탄생과 발전 과정
+<ICT>
+CPU <-BUS-> MEM(RAM)
+CPU <--> MEM(Cache)
+
