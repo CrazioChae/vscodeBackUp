@@ -1,0 +1,23 @@
+    1. ICMP
+
+    (1)용도
+ + IP(Internet Protocol)동작에 추가적 기능 제공
+ + 진단과 제어
+ + 오류에 대한 응답
+ + 오류에 대한 정보는 소스 IP주소로 전송
+
+    (2)OSI 7 Layer 상의 위치
+계층 / 내용
+응용 / HTTPS
+전송 / TCP UDP DCCP
+인터넷 / IP ARP *ICMP
+링크 / MAC ISDN
+
+
+    2. ping 프로토콜
+ + ICMP를 사용자가 직접 사용하도록 만들어진 응용프로그램
+ + Echo Request와 Reply로 구성
+
+ping www.google.com
+
+telnet www.google.com

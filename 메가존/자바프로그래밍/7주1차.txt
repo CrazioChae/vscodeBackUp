@@ -1,0 +1,42 @@
+    1. 구조체 / 클래스의 탄생 배경
+ + 새로운 변수 형에 대한 필요
+ + 개발자에게 주어진 변수 형 제작의 기회
+
+
+    3. 클래스 선언
+class class_name{
+    //attribute(변수 선언 문법을 따름)
+}
+
+
+    4. 클래스 선언 방법과 사용법 이해
+
+    (1) C언어 스택 활용법
+ + 선언과 사용
+MyDate myBirthday;
+myBirthday.day = 15;
+int nextDay = myBirthday.day + 1;
+ + 대입 연산자 사용
+
+    (4)Java 클래스 사용
+ + 객체(인스턴스)
+MyDate MyDate;
+myBirthday = new MyDate();
+myBirthday.day = 15;
+int nextDay = myBirthday.day + 1;
+ *+ 클래스 변수는 포인터형임
+
+
+    1. 클래스
+개발자가 선언한 새로운 변수 형
+속성을 가짐
+객체의 원형
+
+    2. 객체
+클래스를 원형으로 확보한 저장 공간을 의미
+속성 값으로 특징을 가짐
+객체 안의 속성을 접근할 때는 . 연산자를 사용
+
+    3. 객체의 배열
+2차원 배열과 유사
+배열 이름, 배열 원소의 변수 형을 주의 깊게 살펴야 함
