@@ -1,0 +1,87 @@
+    1. 함수에 매개변수 만들기
+
+    (1)매개변수
+def func_name(매개변수, 매개변수):
+    docstring
+
+    (2)매개변수 TypeError
+ + 매개변수를 넣지 않은 경우
+def print_n_times(value, n):
+    docstring
+print_n_times("Hello")
+ >> TypeError
+ + 매개변수를 더 많이 넣은 경우
+
+
+    2. 가변 매개변수
+
+    (1)가변 매개변수
+ + 매개변수를 원하는 만큼 받을 수 있는 함수
+def func_name(매개변수, ...*):
+    docstring
+ + 제약
+  - 가변 매개변수 뒤에는 일반 매개변수가 올 수 없음
+  - 매개변수 하나만 사용 가능
+
+    (2)가변 매개변수 함수의 예
+def print_n_times(n, *values):
+    docstring
+
+
+    3. 기본 매개변수
+
+    (1)기본 매개변수
+ + 매개변수에 값을 입력하지 않았을 경우의 기본값
+def print_n_times(value, n=2)
+    docstring
+
+    (2)기본 매개변수가 가변 매개변수보다 앞에 올 때
+ + 기본 매개변수의 의미가 사라짐
+def print_n_times(n=2, *values):
+    docstring
+print_n_times("Hello", "Hi")
+ >> TypeError
+ + 가변 매개변수가 우선됨
+def print_n_times(*values, n=2):
+    docstring
+print_n_times("Hello", "Hi", 3)
+ >> Hello Hi 3 Hello Hi 3
+
+
+    4. 리턴
+
+    (1)리턴값
+ + 함수의 결과
+
+    (2) 자료 없이 리턴하기
+ + return 키워드: 함수를 실행했던 위치로 돌아가게 함
+def return_test():
+    print("A")
+    return
+    print("B")
+return_test
+ >> A
+
+    (3)자료와 함께 리턴하기
+ + 리턴 뒤에 자료를 입력하면 가지고 돌아감
+
+    (4)아무것도 리턴하지 않기
+ + None: '없다'는 의미
+
+
+    1. 가변 매개변수
+매개변수를 원하는 만큼 받을 수 있는 함수
+제약 1: 가변 매개변수 뒤에는 일반 매개변수 올 수 없음
+제약 2: 가변 매개변수는 하나만 사용할 수 있음
+    
+    2. 기본 매개변수
+매개변수에 값을 입력하지 않았을 경우 매개변수에 들어가는 기본값
+
+    3. 가변 매개변수와 기본 매개변수
+기본 매개변수가 가변 매개변수보다 앞에 올 때 기본 매개변수의 의미가 사라짐
+가변 매개변수가 기본 매개변수보다 앞에 올 때 가변 매개변수가 우선됨
+
+    4. 리턴
+리턴 값: 함수의 결과
+리턴 키워드: 함수를 실행했던 위치로 돌아가게 하며,
+ 리턴 뒤에 자료를 입력하면 자료를 가지고 돌아감
