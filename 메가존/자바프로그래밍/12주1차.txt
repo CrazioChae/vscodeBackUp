@@ -1,0 +1,56 @@
+    1. 제너릭의 필요성
+
+    (1)Generic
+ + 컴파일러가 보장해주는 클래스 형 변환
+ + 다수의 객체를 효과적으로 관리하는데 유용함
+
+    (2)간단한 Generic의 예
+class GenericClass<K, V>{
+    K key;
+    V value;
+    int K get Key(){
+        return key;
+    }
+}
+main{
+    GenericClass<String, Integer> gc =
+     new GenericClass<String, Integer>("KeyValue", 100)
+    
+    System.out.print(gc.getKey());
+}
+
+    (3)LinkedList 클래스의 contains() 멤버 함수
+ + public boolean contains(Object o)
+
+    (4)Comparable<T> interface으 compareTo() 멤버 함수
+ + int compareTo(T)
+
+    (5)Collection.sort()
+ + public static <T extends Comparable<? super T>>
+  void sort(List<T> list)
+
+    (6)Iterator 객체를 반환하는 LinkedList의 멤버 함수
+ + public ListIterator<E> listIterator(int index)
+
+
+    2. JAVA에서 지원하는 제너릭 클래스 사용
+
+    (1)LinkedList 클래스
+
+
+    3. for-each 문법
+
+    (1)The for-each loop
+for(Iterator<TimerTask> T = c.iterator(); i.hasNext();){
+    i.next().cancel();
+}
+
+
+    1. Generic
+안전하고 편리한 클래스 형 변환을 지원
+실행 오류를 컴파일러가 관리
+
+    2. Java Collection Framework
+Java에서 제공하는 자료 구조
+Iterable 등을 지원하여 반복 처리에 용이
+Collections 클래스와 함께 사용하면 편리함
