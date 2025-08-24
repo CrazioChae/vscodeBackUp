@@ -1,8 +1,0 @@
-    1. ICMP Packet에 대한 이해
- + RFC 792
-
-
-    2. ping 클라이언트 구현
- + PING은 C로 구현
- + Java의 Socekt은 TCP 위에서만 구현 가능
-
