@@ -1,0 +1,28 @@
+# Unity 프로젝트 자동 생성 파일 제외
+
+# Build
+/[Ll]ibrary/
+/[Tt]emp/
+/[Oo]bj/
+/[Bb]uild/
+/[Bb]uilds/
+/Logs/
+/UserSettings/
+
+# Visual Studio / IDE Files
+*.csproj
+*.unityproj
+*.sln
+*.suo
+*.user
+*.userprefs
+.vs/
+.idea/
+
+# macOS Files
+.DS_Store
+
+# ReSharper / Rider
+*.pidb
+*.booproj
+*.sln.DotSettings
