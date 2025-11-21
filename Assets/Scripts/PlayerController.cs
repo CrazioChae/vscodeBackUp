@@ -1,6 +1,10 @@
 using UnityEngine;
 using UnityEngine.InputSystem; // Input 시스템을 사용하기 위해 필요합니다.
 
+[RequireComponent(typeof(Rigidbody2D))]
+[RequireComponent(typeof(SpriteRenderer))]
+[RequireComponent(typeof(Animator))]
+
 // 클래스 이름은 파일 이름(PlayerController.cs)과 반드시 같아야 합니다.
 // MonoBehaviour를 상속받아 유니티의 컴포넌트로 사용할 수 있게 합니다.
 public class PlayerController : MonoBehaviour
