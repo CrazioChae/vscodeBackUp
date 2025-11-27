@@ -1,7 +1,5 @@
-using System;
 using System.Collections.Generic;
 using System.Linq;
-using Unity.VisualScripting;
 using UnityEngine;
 
 namespace SO.Managers
@@ -11,9 +9,8 @@ namespace SO.Managers
         public static ManagerConfig Instance { get; private set; } // 싱글톤 인스턴스
         public event System.Action<float> OnMasterVolumeChanged; // 볼륨 변경 시 외부에 알리는 이벤트
         [SerializeField] private float masterVolume = 1f; // 현재 마스터 볼륨 값
-        [SerializeField] private bool isFullScreen = true;
-        [SerializeField] private int savedWidth;
-        [SerializeField] private int savedHeight;
+        [SerializeField] private bool isFullScreen = true; // 전체 화면 모드 여부(UI 동기화용)
+        // 중복 제거된 해상도 목록을 저장하는 캐시
         [SerializeField] private List<Resolution> availableResolutions = new();
 
         void Awake()
@@ -29,25 +26,10 @@ namespace SO.Managers
             // DontDestroyOnLoad(gameObject);
         }
 
-        void Start()
-        {
-            float initialVolume = GetMasterVolume();
-            Debug.Log("초기 마스터 볼륨: " + initialVolume);
-            // 시작 시 현재 설정을 사운드 시스템에 알림
-            OnMasterVolumeChanged?.Invoke(masterVolume);
-            SetMixerVolume(initialVolume);
-        }
-
-        private void SetMixerVolume(float initialVolume)
-        {
-            throw new NotImplementedException();
-        }
-
         public void SetMasterVolume(float newVolume)
         {
-            masterVolume = newVolume; // 0과 1 사이로 클램프
+            masterVolume = Mathf.Clamp01(newVolume); // 0.0에서 1.0 사이로 클램프
             SaveSettings(); // 설정 즉시 저장
-            // 외부에 알림: 사운드 시스템이 이 이벤트를 구독하여 볼륨을 변경합니다.
             OnMasterVolumeChanged?.Invoke(masterVolume); // 볼륨 변경 이벤트 호출
             Debug.Log("마스터 볼륨 설정됨: " + masterVolume);
         }
@@ -59,7 +41,8 @@ namespace SO.Managers
 
         public void SetFullScreen(bool isFullScreen)
         {
-            this.isFullScreen = isFullScreen;
+            this.isFullScreen = isFullScreen; // 내부 상태 업데이트
+            Screen.fullScreen = isFullScreen; // 실제 전체 화면 모드 설정
             SaveSettings();
             Debug.Log("전체 화면 모드 설정됨: " + isFullScreen);
         }
@@ -73,7 +56,7 @@ namespace SO.Managers
                 .Distinct() // 중복 제거
                 .OrderByDescending(res => res.width) // 가로 해상도 내림차순 정렬
                 .ToList(); // 리스트로 변환
-
+ 
             dropdown.ClearOptions(); // 기존 옵션 제거
             List<string> options = availableResolutions // 옵션 문자열 생성
                 .Select(res => $"{res.width} x {res.height}") // 문자열 포맷팅
@@ -81,7 +64,21 @@ namespace SO.Managers
 
             dropdown.AddOptions(options); // 드롭다운에 옵션 추가
             dropdown.RefreshShownValue(); // 표시된 값 새로고침
-            Debug.Log("해상도 드롭다운이 채워졌습니다.");
+
+            int currentResolutionIndex = availableResolutions.FindIndex(res =>
+                res.width == Screen.width && res.height == Screen.height);
+            if (currentResolutionIndex >= 0)
+            {
+                dropdown.value = currentResolutionIndex; // 현재 해상도에 맞게 드롭다운 선택 설정
+                Debug.Log("해상도 드롭다운이 채워졌습니다.");
+                dropdown.RefreshShownValue();
+            }
+            else
+            {
+                dropdown.value = 0; // 기본값으로 설정
+                Debug.LogWarning("현재 해상도에 맞는 옵션을 찾을 수 없습니다. 기본값으로 설정됩니다.");
+                dropdown.RefreshShownValue();
+            }
         }
 
         public void SetResolution(int index)
@@ -89,9 +86,7 @@ namespace SO.Managers
             if (availableResolutions != null && index >= 0 && index < availableResolutions.Count)
             {
                 Resolution selectedResolution = availableResolutions[index];
-                Screen.SetResolution(selectedResolution.width, selectedResolution.height, isFullScreen);
-                savedHeight = selectedResolution.height;
-                savedWidth = selectedResolution.width;
+                Screen.SetResolution(selectedResolution.width, selectedResolution.height, Screen.fullScreen);
                 SaveSettings();
                 Debug.Log($"해상도 설정됨: {selectedResolution.width}x{selectedResolution.height}");
             }
@@ -117,18 +112,17 @@ namespace SO.Managers
         {
             // 저장된 마스터 볼륨 불러오기 (기본값은 1.0f)
             masterVolume = PlayerPrefs.GetFloat("MasterVolume", 1f);
-            Debug.Log("설정 불러옴: 마스터 볼륨 = " + masterVolume);
 
             // 저장된 전체 화면 모드 불러오기 (기본값은 true)
             isFullScreen = PlayerPrefs.GetInt("IsFullScreen", 1) == 1;
             Screen.fullScreen = isFullScreen;
-            Debug.Log("설정 불러옴: 전체 화면 모드 = " + isFullScreen);
 
             // 저장된 해상도 불러오기 (기본값은 현재 해상도)
-            savedWidth = PlayerPrefs.GetInt("ScreenWidth", Screen.currentResolution.width);
-            savedHeight = PlayerPrefs.GetInt("ScreenHeight", Screen.currentResolution.height);
-            Screen.SetResolution(savedWidth, savedHeight, isFullScreen);
-            Debug.Log($"설정 불러옴: 해상도 = {savedWidth}x{savedHeight}");
+            int loadedWidth = PlayerPrefs.GetInt("ScreenWidth", Screen.currentResolution.width);
+            int loadedHeight = PlayerPrefs.GetInt("ScreenHeight", Screen.currentResolution.height);
+            Screen.SetResolution(loadedWidth, loadedHeight, isFullScreen);
+
+            Debug.Log($"모든 설정 불러옴: {loadedWidth}x{loadedHeight}, 전체화면={isFullScreen}, 볼륨={masterVolume}");
         }
     }
 }
